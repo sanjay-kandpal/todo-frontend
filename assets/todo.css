@@ -1,0 +1,27 @@
+
+
+div{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.todo-container{
+    border: 1px solid black;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+.list-tasks{
+    border: 1px solid gray;
+    padding: 16px 58px;
+    margin: 40px;
+    
+}
+
+.my-class{
+    border: 1px solid black;
+    padding: 16px 58px;
+    margin: 40px;
+   
+}

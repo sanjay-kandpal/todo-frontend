@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/todo.css">
+    
+</head>
+<body>
+
+    <div class="todo-container">
+       
+      <label id="tasks-container">
+        <input type="text" placeholder="Type your todo list"  id="todo" required></input><button id="submit" type="submit">submit</button> 
+      </label>   
+     
+        <div class="tasks">
+           <div class="list-tasks"> 
+            <input type="checkbox">Wake up at 5am
+           </div>
+           <div class="list-tasks"> 
+            <input type="checkbox">Learn how to use Vue.js
+           </div>
+           <div class="list-tasks">
+            <input type="checkbox">Drink Coffee
+           </div>
+           <div id="lists-tasks">
+            
+          </div>
+            
+          
+        </div>
+        <span id="total-task"></span>
+    </div>
+    
+    <script src="./assets/todo.js"></script>
+
+
+</body>
+</html>
