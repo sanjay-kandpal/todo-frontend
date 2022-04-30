@@ -1,53 +1,75 @@
-const btn = document.getElementById('submit');
+
+var submission = document.getElementById('submit');
+
+var InputValue;
+var Larray = [];
+
+var j =0;
+var i = 0 ;
+display();
 
 
-var tods;
-var task = new Array();
-var ol = {};
+// adding a task 
+submission.addEventListener('click',(e)=>
+{
+   e.preventDefault();
 
+    InputValue = document.getElementById('todo').value;
 
-btn.addEventListener('click',(e)=>{
-    e.preventDefault();
-    tods = document.getElementById('todo').value; 
-     
-     console.log(ol);
-     
-  store();
-  
-
+    localStore();
+      
+    display();
 
 })
-
-function store(){
-  localStorage.setItem('task',JSON.stringify(tods));
-     ol = JSON.parse(localStorage.getItem("task"));
-     console.log(ol.length);
-     display();
+// storing locally in LocalStorage
+function localStore()
+ {
+   let array = localStorage.getItem('tasks');
+  
+   if(array == null){
+      Larray = [];
+   }else{
+      Larray = JSON.parse(array);
+   }
+    
+   //console.log(array.length);
+   if(InputValue === "" )
+   {
+      alert('give task to pc');
+      return;
+   }else
+   { 
+      
+      //console.log(x);
+      
+      Larray.push(InputValue);
+     
+      localStorage.setItem('tasks',JSON.stringify(Larray));
+  
+       display();
+   }
+   
+ }
+ // display all task yet to be done by user
+function display(){
+   
+ let array = localStorage.getItem("tasks");
+  //console.log(array);
+  if(array == null){
+   Larray = [];
+  }else{
+     Larray = JSON.parse(array);
+  }
+   console.log((i) + " " +(j));
+   i = j;
+  for(  ; i < Larray.length ; i++){
+  
+     document.getElementById('tasks').innerHTML += `<div id="list-tasks" ><input type="checkbox" id="${JSON.stringify(i)}">${Larray[i]}</input><div><button id="btn" type="submit">cross</button></div></div>`;
+      j++;
+  }
+  
+  document.getElementById('total-task').innerHTML = `${Larray.length}`;
+  
 }
 
-function display()
-{
-   
-    
-    
-    
-    document.getElementById('total-task').innerHTML = ol;
-   // console.log(task.length);
-   // console.log(task);
-    
-     
-     
-     
-      document.getElementById('lists-tasks').classList.add("my-class");
-      document.getElementById('lists-tasks').innerHTML += `<input type=checkbox >${ol}</input>`;
-       
-     
-    
-  
-  
-
-    
-   
-   
-}
 
