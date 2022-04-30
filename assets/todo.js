@@ -1,12 +1,12 @@
 
+var j =0;
+var i = 0 ;
+display();
+
 var submission = document.getElementById('submit');
 
 var InputValue;
 var Larray = [];
-
-var j =0;
-var i = 0 ;
-display();
 
 
 // adding a task 
@@ -62,14 +62,35 @@ function display(){
   }
    console.log((i) + " " +(j));
    i = j;
-  for(  ; i < Larray.length ; i++){
+  for(; i < Larray.length ; i++){
   
-     document.getElementById('tasks').innerHTML += `<div id="list-tasks" ><input type="checkbox" id="${JSON.stringify(i)}">${Larray[i]}</input><div><button id="btn" type="submit">cross</button></div></div>`;
+     document.getElementById('tasks').innerHTML += `<div class="list-tasks" ><input type="checkbox" id="${JSON.stringify(i)}">${Larray[i]}</input><div><button onclick="DeleteTask(${JSON.stringify(i)})" type="submit">cross</button></div></div>`;
       j++;
   }
   
   document.getElementById('total-task').innerHTML = `${Larray.length}`;
   
+}
+// delete task
+function DeleteTask(i){
+   let checkedValue = document.getElementById(i);
+   console.log(checkedValue.checked == true);
+   let localStore = localStorage.getItem("tasks");
+   let s = JSON.parse(localStore);
+ 
+   if(checkedValue.checked == true){
+    s.splice(i , 1);
+    localStorage.setItem("tasks",JSON.stringify(s));
+    display();
+    location.reload();
+   }
+   else{
+      alert(`checkbox value is : ${checkedValue.checked == true }`);
+      return;
+   }
+   
+   
+
 }
 
 

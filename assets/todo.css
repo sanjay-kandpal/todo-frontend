@@ -12,7 +12,7 @@ div{
     display: flex;
     flex-direction: column;
 }
-#list-tasks{
+.list-tasks{
     border: 1px solid gray;
     padding: 16px 58px;
     margin: 40px;
